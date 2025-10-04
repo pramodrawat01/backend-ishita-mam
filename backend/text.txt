@@ -1,0 +1,13 @@
+by default js type is common js 
+in server we user module type js to export and import
+
+node - js execution code () + external modules (written in c++)
+this "fs" module comes from node 
+in build modules
+fs(file system) module : most imp - interect with machine 
+
+
+will be require if we wants to store data temeperally before storing in database
+will be helpful with multer in cloudinary 
+
+
