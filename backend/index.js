@@ -355,11 +355,15 @@
 
 import e from "express";
 import dotenv from 'dotenv'
+import cors from 'cors'
 import userRouter from "./routes/UserRouter.js";
 
 dotenv.config()
 const app = e();
-app.use(e.json())
+//using inbuilt middleware
+app.use(e.json()) // parseing
+
+app.use(cors())          /// allow cross browser requests
 
 app.use('/user', userRouter)
 

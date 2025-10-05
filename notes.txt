@@ -1,0 +1,21 @@
+middleware : gives additional functionalities 
+
+
+status code :
+
+200 : ok
+201 : successfully created
+400 : bad request
+401 : unauthorized
+
+404 : page not found
+
+
+authorization vs authentation 
+
+
+
+Link vs userNavigate() hook
+
+Link - navigate manually
+userNavigate - navigate 

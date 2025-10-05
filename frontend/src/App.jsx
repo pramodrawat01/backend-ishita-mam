@@ -1,52 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [form, setForm] = useState({
-    firstName : "",
-    lastName :"",
-    userName : "",
-    password : ""
-  })
-
-  const handleChange = (e)=>{
-    const {name, value} = e.target;
-
-    setForm({
-      ...form,
-      [name] : value
-     })
-
-  }
-
-  const submitHandler = async() =>{
-    const res = await fetch('http://localhost:3000/user/addUser', {
-        method : "POST",
-        headers :{
-          "Content-Type" : "application/josn"
-        },
-
-        // send form in json form (it is obj )
-        body : JSON.stringify(form)
-    })
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Signup from './components/Signup'
+import Home from './pages/Home'
+import Profile from './pages/Profile'
+import Navbar from './components/Navbar'
 
 
-  }
+const App = () => {
 
   return (
-    <div>
-      <input type='text' placeholder='firstName' name="firstName" onChange={ () => handleChange()}/>
-      
-      <input type='text' placeholder='lsatName' name ="lastName" onChange={ () => handleChange()}/>
+    <div> 
 
-      <input type='text' placeholder='userName' name ="userName" onChange={ () => handleChange()}
-      />
-      <input type='password' placeholder='password' name="password" onChange={ () => handleChange()}/> 
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/signup' element={<Signup/>}/>
+        <Route path='/profile' element={<Profile/>}/>
 
-
-      <button onClick={()=> submitHandler()}>submit</button>
+      </Routes>
     </div>
   )
 }
