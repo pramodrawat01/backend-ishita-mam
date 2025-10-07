@@ -22,7 +22,7 @@ function Signup() {
   }
 
   const submitHandler = async() =>{
-    const res = await fetch('http://localhost:3000/user/addUser', {
+    const res = await fetch('http://localhost:3000/user/signup', {
         method : "POST",
         headers :{
           "Content-Type" : "application/json"
@@ -41,6 +41,7 @@ function Signup() {
     }
 
     if(res.status == 201){
+        localStorage.setItem('loggedUser', JSON.stringify(data.userName))
         navigate('/profile')
     }
 
